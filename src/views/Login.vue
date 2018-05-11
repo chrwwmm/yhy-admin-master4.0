@@ -36,6 +36,7 @@
 						message: '用户名或密码为空！'
 					});
 				}else{
+                    // this.$router.push({ path: '/web' });
                     this.$store.dispatch('Logins',data).then(res => {
                         console.log(res)
                         let a = res.data[0].msg
@@ -50,7 +51,7 @@
                                 });
                             }    
                         }else{
-                            this.$router.push({ path: '/' });
+                            this.$router.push({ path: '/kh' });
                         }
                     }).catch(() => {
                     	console.log('错误！');

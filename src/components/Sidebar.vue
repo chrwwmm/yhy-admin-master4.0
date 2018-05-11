@@ -10,14 +10,14 @@
             router>
             <template v-for="item in newrouter">
                 <template v-if="item.childMenu">
-                    <el-submenu :index="item.bigMenu.url">
+                    <el-submenu :index="item.bigMenu.url" :key="item.bigMenu.url">
                         <template slot="title"><i :class="item.bigMenu.icon"></i>{{ item.bigMenu.name }}</template>
                         <el-menu-item v-for="(subItem,i) in item.childMenu" :key="i" :index="subItem.url">{{ subItem.name }}
                         </el-menu-item>
                      </el-submenu>
                 </template>
                 <template v-else>
-                    <el-menu-item :index="item.bigMenu.url">
+                    <el-menu-item :index="item.bigMenu.url" :key="item.bigMenu.url">
                         <i :class="item.bigMenu.icon"></i>{{ item.bigMenu.name }}
                     </el-menu-item>
                 </template>
@@ -31,63 +31,7 @@
     export default {
         data() {
             return {
-                items: [
-                	{
-                        icon: 'el-icon-menu',
-                        index: 'user',
-                        title: '用户管理',
-                        subs: [
-                            {
-                                index: 'user1',
-                                title: '用户管理1'
-                            },
-                            {
-                                index: 'user2',
-                                title: '用户管理2'
-                            }
-                        ]
-                    },
-                    {
-                        icon: 'el-icon-menu',
-                        index: 'userList',
-                        title: '用户列表'
-                    },
-                    {
-                        icon: 'el-icon-menu',
-                        index: 'roleList',
-                        title: '角色列表'
-                    },
-                    {
-                        icon: 'el-icon-setting',
-                        index: 'processLog',
-                        title: '后台进程日志'
-                    },
-                    {
-                        icon: 'el-icon-menu',
-                        index: 'equipmentControl',
-                        title: '设备管理',
-                        subs: [
-                            {
-                                index: 'equipmentControl1',
-                                title: '设备管理1'
-                            },
-                            {
-                                index: 'equipmentControl2',
-                                title: '设备管理2'
-                            }
-                        ]
-                    },
-                    {
-                        icon: 'el-icon-date',
-                        index: 'equipmentList',
-                        title: '设备列表',
-                    },
-                    {
-                        icon: 'el-icon-star-on',
-                        index: 'equipmentOrigin',
-                        title: '设备溯源'
-                    }
-                ]
+                item: []
             }
         },
         created() {

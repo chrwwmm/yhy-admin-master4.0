@@ -6,7 +6,7 @@
         </div>
         <div class="header-title">亿慧云后台管理系统</div>
         <div class="header-right">
-            <div class="welcome">欢迎您！亿慧云管理员！<span style="color:red;"  @click="logout()">退出</span> </div>
+            <div class="welcome">欢迎您！亿慧云管理员！<span style="color:#f56c6c;"  @click="logout()">退出</span> </div>
             <div class="time">
                 <span>{{time}}</span>
             </div>  

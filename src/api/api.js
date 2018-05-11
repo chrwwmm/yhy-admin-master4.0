@@ -4,10 +4,12 @@ import qs from 'qs'
 export const API_LOGIN = '/jk/yhy-admin/'
 export const API_ROOT = '/api/'
 // export const API_ROOT = 'http://192.168.100.37:8080/'
-export const API_TEST = 'http://localhost/yhy-admin/'
+export const API_WEB = '/api/admin/'
+// http://119.23.46.215:8080/yhcloud/phone/sendSMS
+export const API_TEST = '/test/yhcloud/phone/'
 
 // 登录验证
-export const doLogin = params => { return axios.post( API_ROOT + 'to/login3', qs.stringify( params )); };
+export const doLogin = params => { return axios.post( API_ROOT + 'to/login3',  params ); };
 
 // 获取用户列表
 export const getUser = params => { return axios.get( API_ROOT + 'to/userlist', { params: params }); };
@@ -21,9 +23,31 @@ export const updateUser = params => { return axios.post( API_ROOT + 'to/update_U
 // 删除用户
 export const delUser = params => { return axios.post( API_ROOT + 'to/delete', qs.stringify( params )); };
 
-// 测试专用
-export const loginByUserInfo = [
-  {"id": 1, "username": "aaa", "pew": 123456, "role": "A" , "introduce":"我可以看见全部页面"},
-  {"id": 2, "username": "bbb", "pew": 123456, "role": "B" , "introduce":"我可以看到B的页面"},
-  {"id": 3, "username": "ccc", "pew": 123456, "role": "C" , "introduce":"我可以看见C的页面"}
-]
+// 获取所有文章
+export const allArticle = params => { return axios.get( API_WEB + 'selectAllArticle', params ); };
+
+// 添加文章
+export const addArticle = params => { return axios.post( API_WEB + 'addArticle', params ); };
+
+// 修改文章
+export const updateArticle = params => { return axios.post( API_WEB + 'updateArticle',  params ); };
+
+// 删除文章
+export const delArticle = params => { return axios.post( API_WEB + 'delArticle', params ); };
+
+// test
+export const doTest = params => { return axios.post( API_TEST + 'sendSMS',  params ); };
+
+// http://192.168.100.37:8080/testfreemark/admin/selectAllSeo  
+// http://192.168.100.37:8080/testfreemark/admin/updateSeo 
+// http://192.168.100.37:8080/testfreemark/admin/addSeo   
+// http://192.168.100.37:8080/testfreemark/admin/delSeo
+
+// SEO
+export const selectAllSeo = params => { return axios.post( API_WEB + 'selectAllSeo',  params ); };
+
+export const updateSeo = params => { return axios.post( API_WEB + 'updateSeo',  params ); };
+
+
+
+

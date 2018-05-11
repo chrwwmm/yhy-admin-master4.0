@@ -18,6 +18,13 @@ module.exports = {
           '^/api': 'http://192.168.100.37:8080' //路径重写 
         } 
       },
+      '/test': {
+        target: 'http://119.23.46.215:8080', //源地址 
+        changeOrigin: true, //改变源 
+        pathRewrite: { 
+          '^/test': 'http://119.23.46.215:8080' //路径重写 
+        }
+      },
       '/jk': {
         target: 'http://localhost', //源地址 
         changeOrigin: true, //改变源 
